@@ -1,57 +1,728 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Debin Dadji George — a personal page from Kerala, India.">
-  <meta name="author" content="Debin Dadji George">
-  <meta name="robots" content="index, follow">
-  <title>Debin — Debin Dadji George</title>
-  <style>
-    :root { --bg:#0b0b0d; --text:#f4f4f0; --muted:#99999a; --line:#242428; }
-    * { box-sizing:border-box; }
-    body {
-      margin:0; background:var(--bg); color:var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      min-height:100vh; display:flex; align-items:center; justify-content:center;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Debin — automotive enthusiast, photography, ideas and a better version of me.">
+<meta name="author" content="Debin Dadji George">
+
+<title>DEBIN — Cars. Ideas. A Better Me.</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg: #08090b;
+    --card: #101216;
+    --text: #f4f4f5;
+    --muted: #8b8e96;
+    --line: #24262c;
+    --accent: #ff3b30;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* NAVBAR */
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8,9,11,0.82);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #aaa;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 7% 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    right: -180px;
+    top: 80px;
+    background: radial-gradient(circle, rgba(255,59,48,0.13), transparent 65%);
+}
+
+.hero-content {
+    max-width: 850px;
+    position: relative;
+    z-index: 2;
+}
+
+.small-title {
+    color: #999;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.small-title::after {
+    content: "";
+    display: inline-block;
+    width: 55px;
+    height: 1px;
+    background: #777;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+h1 {
+    font-size: clamp(55px, 10vw, 125px);
+    line-height: 0.9;
+    letter-spacing: -5px;
+    font-weight: 800;
+}
+
+h1 span {
+    color: transparent;
+    -webkit-text-stroke: 1px #777;
+}
+
+.hero-text {
+    margin-top: 30px;
+    color: var(--muted);
+    font-size: 18px;
+    max-width: 500px;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 14px 25px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn.primary {
+    background: white;
+    color: #08090b;
+    border-color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+.btn.primary:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* SECTIONS */
+
+section {
+    padding: 100px 7%;
+    border-top: 1px solid var(--line);
+}
+
+.section-label {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.section-label::after {
+    content: "";
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background: #666;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-box {
+    height: 400px;
+    border-radius: 12px;
+    background:
+        linear-gradient(145deg, #181a20, #07080a);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-box::before {
+    content: "CARS";
+    position: absolute;
+    font-size: 120px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.025);
+    transform: rotate(-12deg);
+    right: -20px;
+    top: 80px;
+}
+
+.about-box::after {
+    content: "PASSION";
+    position: absolute;
+    font-size: 65px;
+    font-weight: 800;
+    color: rgba(255,59,48,0.08);
+    transform: rotate(-12deg);
+    right: 10px;
+    top: 190px;
+}
+
+.about-box p {
+    position: relative;
+    z-index: 2;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.about h2 {
+    font-size: clamp(35px, 5vw, 60px);
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.about-text {
+    color: var(--muted);
+    max-width: 650px;
+}
+
+.quote {
+    margin-top: 30px;
+    border-left: 2px solid var(--accent);
+    padding-left: 18px;
+    color: #ddd;
+}
+
+/* DRIVES */
+
+.drives {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+}
+
+.drive {
+    background: var(--bg);
+    padding: 40px 30px;
+    transition: 0.3s;
+}
+
+.drive:hover {
+    background: var(--card);
+}
+
+.number {
+    color: var(--accent);
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.drive h3 {
+    margin-top: 20px;
+    font-size: 21px;
+}
+
+.drive p {
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* VISUAL */
+
+.visual {
+    min-height: 420px;
+    border-radius: 15px;
+    background:
+        radial-gradient(circle at 75% 45%, rgba(255,59,48,0.2), transparent 20%),
+        linear-gradient(130deg, #17191d, #050506 60%);
+    border: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+}
+
+.car-shape {
+    position: absolute;
+    width: 70%;
+    height: 150px;
+    background: #08090b;
+    border-radius: 100px 100px 25px 25px;
+    bottom: 70px;
+    left: 15%;
+    transform: skewX(-8deg);
+    box-shadow: 0 25px 70px rgba(0,0,0,0.8);
+}
+
+.car-shape::before {
+    content: "";
+    position: absolute;
+    width: 45%;
+    height: 80px;
+    background: #111319;
+    top: -55px;
+    left: 25%;
+    border-radius: 80px 80px 0 0;
+}
+
+.light {
+    position: absolute;
+    width: 65px;
+    height: 15px;
+    background: var(--accent);
+    border-radius: 50%;
+    bottom: 125px;
+    box-shadow: 0 0 25px var(--accent);
+}
+
+.light.left {
+    left: 20%;
+}
+
+.light.right {
+    right: 20%;
+}
+
+.visual-title {
+    position: absolute;
+    top: 35px;
+    left: 35px;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #777;
+}
+
+/* CONTACT */
+
+.contact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.contact h2 {
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: 0.95;
+}
+
+.contact p {
+    color: var(--muted);
+    margin-top: 25px;
+    max-width: 450px;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-link {
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 22px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.contact-link:hover {
+    border-color: #555;
+    transform: translateX(5px);
+}
+
+.contact-link small {
+    display: block;
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
+.contact-link strong {
+    font-size: 15px;
+}
+
+.arrow {
+    color: var(--accent);
+    font-size: 20px;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 7%;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+    font-size: 12px;
+}
+
+footer strong {
+    color: #aaa;
+    letter-spacing: 3px;
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    nav {
+        padding: 18px 5%;
     }
-    main { width:min(760px, 90%); padding:70px 0; }
-    .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:110px; }
-    .mark { font-size:18px; font-weight:700; letter-spacing:.08em; }
-    .place { color:var(--muted); font-size:14px; }
-    h1 { font-size:clamp(58px, 12vw, 108px); line-height:.9; letter-spacing:-.07em; margin:0 0 28px; font-weight:700; }
-    .full { font-size:19px; margin-bottom:52px; }
-    .intro { max-width:570px; color:#c2c2c3; font-size:18px; line-height:1.7; margin:0; }
-    .line { border:0; border-top:1px solid var(--line); margin:70px 0 24px; }
-    .links { display:flex; gap:26px; flex-wrap:wrap; }
-    a { color:var(--text); text-decoration:none; font-size:15px; border-bottom:1px solid #555; padding-bottom:3px; }
-    a:hover { border-color:var(--text); }
-    footer { margin-top:90px; color:#66666a; font-size:12px; }
-  </style>
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    h1 {
+        letter-spacing: -3px;
+    }
+
+    section {
+        padding: 75px 5%;
+    }
+
+    .about,
+    .contact {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-box {
+        height: 300px;
+    }
+
+    .drives {
+        grid-template-columns: 1fr;
+    }
+
+    .visual {
+        min-height: 320px;
+    }
+
+    .car-shape {
+        width: 85%;
+        left: 7%;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
 </head>
+
 <body>
-  <main>
-    <div class="top">
-      <div class="mark">D.</div>
-      <div class="place">Kerala, India</div>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <a href="#home" class="logo">KREX<span>.</span>EXE</a>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="small-title">Automotive Enthusiast</div>
+
+        <h1>
+            CARS.<br>
+            <span>IDEAS.</span><br>
+            A BETTER ME.
+        </h1>
+
+        <p class="hero-text">
+            More than just machines.<br>
+            A lifestyle, a mindset, a passion.
+        </p>
+
+        <div class="buttons">
+            <a href="#gallery" class="btn primary">Explore ↓</a>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+
     </div>
 
-    <h1>Debin</h1>
-    <div class="full">Debin Dadji George</div>
+</header>
 
-    <p class="intro">
-      A personal page for Debin Dadji George, from Kerala, India.
-      A simple space for selected work, projects and things worth sharing.
-    </p>
 
-    <hr class="line">
+<!-- ABOUT -->
 
-    <div class="links">
-      <a href="https://instagram.com/de_bynn" target="_blank" rel="noopener">Instagram ↗</a>
-      <a href="mailto:de_bynn@instagram.com">Contact ↗</a>
+<section id="about">
+
+    <div class="about">
+
+        <div class="about-box">
+            <p>SAME ROADS. DIFFERENT STORIES.</p>
+        </div>
+
+        <div>
+
+            <div class="section-label">About Me</div>
+
+            <h2>Hey, I'm Debin.</h2>
+
+            <p class="about-text">
+                Just a guy who loves cars, good design and a bit of
+                peace in the chaos. This is my little corner of the
+                internet — a place for cars, moments, ideas and
+                everything in between.
+            </p>
+
+            <div class="quote">
+                Good cars. Better days.
+            </div>
+
+        </div>
+
     </div>
 
-    <footer>© 2026 Debin Dadji George</footer>
-  </main>
+</section>
+
+
+<!-- WHAT DRIVES ME -->
+
+<section>
+
+    <div class="section-label">What Drives Me</div>
+
+    <div class="drives">
+
+        <div class="drive">
+            <div class="number">01</div>
+            <h3>Cars</h3>
+            <p>Engineering meets emotion.</p>
+        </div>
+
+        <div class="drive">
+            <div class="number">02</div>
+            <h3>Photography</h3>
+            <p>Finding beauty in everyday moments.</p>
+        </div>
+
+        <div class="drive">
+            <div class="number">03</div>
+            <h3>Growth</h3>
+            <p>A better version, always.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+    <div class="section-label">Automotive</div>
+
+    <div class="visual">
+
+        <div class="visual-title">
+            AFTER DARK / ON THE ROAD
+        </div>
+
+        <div class="car-shape"></div>
+
+        <div class="light left"></div>
+        <div class="light right"></div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact">
+
+        <div>
+
+            <div class="section-label">Contact</div>
+
+            <h2>LET'S<br>CONNECT.</h2>
+
+            <p>
+                Have something to ask, discuss, or just say hi?
+                I'd love to hear from you.
+            </p>
+
+        </div>
+
+
+        <div class="contact-links">
+
+            <a class="contact-link"
+               href="https://instagram.com/de_bynn"
+               target="_blank">
+
+                <div>
+                    <small>INSTAGRAM</small>
+                    <strong>@de_bynn</strong>
+                </div>
+
+                <div class="arrow">↗</div>
+
+            </a>
+
+
+            <a class="contact-link"
+               href="mailto:debindadji@gmail.com">
+
+                <div>
+                    <small>EMAIL</small>
+                    <strong>debindadji@gmail.com</strong>
+                </div>
+
+                <div class="arrow">↗</div>
+
+            </a>
+
+
+            <a class="contact-link"
+               href="tel:+919744319661">
+
+                <div>
+                    <small>CALL ME</small>
+                    <strong>9744319661</strong>
+                </div>
+
+                <div class="arrow">↗</div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        <strong>KREX.EXE</strong><br>
+        CARS. IDEAS. A BETTER ME.
+    </div>
+
+    <div>
+        Built with passion.
+    </div>
+
+    <div>
+        © 2026 Debin
+    </div>
+
+</footer>
+
 </body>
 </html>
